@@ -1,181 +1,542 @@
-<!DOCTYPE html><!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]--><!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]--><!--[if IE 8]><html class="no-js lt-ie9"><![endif]--><!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Ilari Mäkelä - Open Application</title><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="http://localhost:35729/livereload.js"></script><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css"><script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script><link href="http://fonts.googleapis.com/css?family=Alef:700" rel="stylesheet" type="text/css"><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet" type="text/css"><style>body {
-	background-color: #F8F8F8;
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>
+         Ilari Mäkelä - Törkeen kova koodaaja
+      </title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<style>
+
+@media print {
+
+    .subtitle {
+        background-color: #30B4E7 !important;
+    }
+
+    .subtitle h2 {
+        color: #ffffff !important;
+    }
+
+    .subtitle h2 span {
+        color: #ffffff !important;
+        border-left: 2px solid #FFFFFF !important;
+    }
+
+    .pagebreak {
+        page-break-after:always;
+    }
 }
 
-.row {
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	-ms-border-radius: 2px;
-	-o-border-radius: 2px;
-	border-radius: 2px;
+p, li {
+    font-size: 16px;
 }
 
-.header, .feelings, .application, .statistics, .recommendations {
-	background-color: #ffffff;
+.subtitle {
+    background-color: #30B4E7 !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 11px 22px;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
-.feelings, .application, {
-	margin-top: 10px;
-	margin-bottom: 10px;
+.subtitle h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin: 0;
 }
 
-header {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 16px;
+.subtitle h2 span {
+    border-left: 2px solid #FFFFFF;
+    padding-left: 22px;
+    margin-left: 13px;
 }
 
-header .leadQA {
-	font-family: 'Alef', sans-serif;
-	letter-spacing: 1px;
-	font-size: 24px;
-	color: #000000 !important;
+.header .col-sm-2 {
+    margin-top: 40px;
 }
 
-header .navbar {
-	padding: 15px 18px 5px 18px;
-	background: #fff;
-	border-left: 1px solid #eee;
-	border-right: 1px solid #eee;
-	border-bottom: 1px solid #eee;
-	-webkit-box-shadow: #eee 0 0 2px;
-	-moz-box-shadow: #eee 0 0 2px;
-	box-shadow: #eee 0 0 2px;
+.header .col-sm-9 {
+    margin-top: 75px;
 }
 
-.application {
-	padding: 30px 15px;
+.header img {
+    width: 165px;
 }
 
-.application .featurebanner {
-    background: url("/images/IMG_7132.jpg") repeat scroll center center	#242628;
-    color: #FFFFFF;
-    height: 500px;
-    position: relative;
-    width: 100%;
+.header .col-sm-9 h1 {
+    font-size: 50px;
+    line-height: 40px;
+    margin-bottom: 0;
 }
 
-.application h2 {
-	font-size: 21px;
-	font-weight: normal;
+.header .col-sm-9 h2 {
+    font-size: 24px;
+    margin-top: 0;
+    color: #6CBEFF !important;
 }
 
-.application .text {
-	margin-top: 20px;
+.projects .project h2,
+.github .project h2,
+.footer .project h2 {
+    color: #00A4E4 !important;
+    margin-bottom: 5px;
 }
 
-.application p {
-	font-size: 18px;
+.projects .project span,
+.github .project span,
+.footer .project span {
+    color: #ABB2BF !important;
 }
 
-.quotes {
-    background: url("/images/IMG_6637.jpg") no-repeat scroll center center	#242628;
-    width: 100%;
+.projects .project h3,
+.github .project h3,
+.footer .project h3 {
+    font-size: 18px;
+    margin-top: 15px;
 }
 
-.quote blockquote {
-	border-left: 0px !important;
-	text-align: center;
-	color: #000000;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+.github .project h2
+{
+    margin-bottom: 0px;
 }
 
-.quote blockquote.up {
-	padding-top: 90px;
-	padding-bottom: 30px;
+.github .progress {
+    margin: 10px 0 20px;
 }
 
-.quote blockquote.down {
-	padding-top: 30px;
-	padding-bottom: 60px;
+@media print {
+
+    .github .shell {
+        background-image: linear-gradient(to bottom, #5861CE 0px, #5861CE 100%) !important;
+        color: white !important;
+        background-repeat: repeat-x;
+    }
+
+    .github .perl {
+        background-image: linear-gradient(to bottom, #0298C3 0px, #0298C3 100%) !important;
+        color: white !important;
+        background-repeat: repeat-x;
+    }
+
+    .github .php {
+        background-image: linear-gradient(to bottom, #4F5D95 0px, #4F5D95 100%) !important;
+        color: white !important;
+        background-repeat: repeat-x;
+    }
+
+    .github .js {
+        background-image: linear-gradient(to bottom, #F1E05A 0px, #F1E05A 100%) !important;
+        color: white !important;
+        background-repeat: repeat-x;
+    }
+
+}
+.github .shell {
+    background-image: linear-gradient(to bottom, #5861CE 0px, #5861CE 100%);
+    background-repeat: repeat-x;
 }
 
-.quote blockquote small {
-	color: #363630
+.github .perl {
+    background-image: linear-gradient(to bottom, #0298C3 0px, #0298C3 100%);
+    background-repeat: repeat-x;
 }
 
-.recommendations {
-	padding: 10px 20px;
-	border-bottom: 30px solid #fff;
-	margin-bottom: -30px;
-	position: relative;
-	z-index: 10;
+.github .php {
+    background-image: linear-gradient(to bottom, #4F5D95 0px, #4F5D95 100%);
+    background-repeat: repeat-x;
 }
 
-.recommendations .header {
-	padding-bottom: 1px;
-	border-bottom: 1px solid #f0f0f0;
-	margin-bottom: 24px;
-}
-
-.recommendations dt img {
-	height: 150px;
-	width: 150px;
-}
-
-.recommendations dd blockquote {
-	border-left: 0px;
-	font-size: 16px;
-	border-left: 0px;
-	padding-top: 0px;
-}
-
-.recommendations dd blockquote p {
-	font-size: 18px;
-}
-
-.recommendations .kalle {
-	margin-bottom: 40px;
-}
-
-.statistics {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.statistics, .recommendations {
-	margin-top: 30px;
-}
-
-.statistics p {
-	text-align: center;
-	margin: 30px;
-}
-
-.statistics p strong{
-	display: block;
-	margin: 0 0 0;
-	font-weight: normal;
-	font-size: 40px;
-	line-height: 58px;
-	color: #1a1a1a;
-}
-
-.feelings {
-	margin-top: -30px;
-	padding: 15px;
-}
-
-.feelings .col-xs-6, .feelings .col-md-3 {
-	padding: 15px;
+.github .js {
+    background-image: linear-gradient(to bottom, #F1E05A 0px, #F1E05A 100%);
+    background-repeat: repeat-x;
 }
 
 .footer {
-	margin-top: 30px;
-	margin-bottom: 200px;
+    margin-top: 150px;
+    margin-bottom: 300px;
 }
 
-.footer h3, .footer address, .footer a {
-	color: #9d9d9d;
+.footer .contact,
+.footer .glyphicon,
+.footer .fa {
+    color: #30B4E7 !important;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
-.footer h3 {
-	font-weight: bold;
-	font-size: 12px;
+.footer .text {
+    font-size: 18px;
 }
 
-.footer address {
-	font-size: 13px;
-}</style></head><body><div class="container"><header id="global-header" class="row"><nav class="navbar navbar-default" role="navigation"><div class="container-fluid"><div class="navbar-header col-sm-4"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand leadQA" href="#">Ilari Mäkelä</a></div><div class="collapse navbar-collapse col-sm-6" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav navbar-center"><li><a href="http://fi.linkedin.com/in/ilarim/" target="_blank">LINKEDIN</a></li><li><a href="http://ilarimakela.blogspot.fi" target="_blank">BLOG</a></li><li><a href="#contact">CONTACT</a></li></ul></div></div></nav></header><div class="application row"><div class="featurebanner"></div><div class="col-md-4 header"><h1>Ilari Mäkelä</h1><h2>Lead Quality Assurance Specialist / DevOps / Developer / Entrepreneur</h2></div><div class="col-md-8 text"><p>At the moment I'm working as a <a target="_blank" href="http://fi.linkedin.com/in/ilarim">Lead Quality Assurance Specialist</a> at <a target="_blank" href="http://solinor.fi">Solinor</a>. Solinor is Software Company, which makes payment solutions from small projects to huge companies like <a target="_blank" href="http://www.nets.fi/">Nets</a> (former <a target="_blank" href="http://www.luottokunta.fi">Luottokunta</a>). There is only one <a target="_blank" href="http://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard">PCI DSS</a> certified Software Company in Finland and that is Solinor.</p><p>I starter at Solinor as a Software Developer. At the beginning it was hard to code in strict guidelines of PCI DSS but after I adopted them it was natural way of making things. Since that I don’t know any other way to make software than thru huge testing sets, security audits, peer programming, code / test reviews and continuous deployments.</p><p>Now at Solinor I’m creating testing guidelines, Continuous Deployment systems and sometimes working as a developer in different teams. As a PCI DSS certified company I need to follow rules of the certification. For example certification force to follow secure coding principles like <a target="_blank" href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">OWASP TOP 10</a> and <a target="_blank" href="http://www.sans.org/top25-software-errors/">CWE/SANS TOP 25</a>. Because of the OWASP and SANS I’m familiar with coding secure applications, white box testing and black box testing.</p><p>At Solinor we have always been using Scrum and Kanban in our daily work. We are also using user stories in all our tasks. Because of user stories we are moving from Test-driven development to behaviour-driven development in most cases. It makes sense to use natural written language to describe our tasks.</p><p>When I started at Solinor about three and half years ago the company was size of six developers. Now it is 30-employee company. It’s been fun and hugely challenging to work in Startup Company. When there is only bunch of workers in company they are all forced to learn each other’s work. I mean I started as developer but I needed to learn how to release my version of the application and how to maintain it. I have been in Solinor for about three years but I could say it’s 15 years working experience packed in three because of the steep learning curve.</p><p>Now I’m looking for new challenges. I know how to make and test applications, which are transferring most of the Finnish credit card transactions. I have such a knowhow Reaktor doesn’t want to miss. Contact me and lets talk more.</p></div></div><div class="recommendations row"><div class="col-md-12"><div class="header"><h1>Recommendations</h1></div></div><div class="col-md-12"><dl class="dl-horizontal"><dt><img class="img-circle" src="http://m.c.lnkd.licdn.com/media/p/3/000/000/18d/2eb42dc.jpg"></dt><dd class="kalle"><blockquote><p>"Ilari is an enthusiastic software developer and avid learner. I was positively surprised by his ability to take responsibility of design, implementation, quality assurance and packaging of a large web application with a complex database and how well and fast he learned test automation and continuous integration. He is excellent company as well."</p><small>Kalle Hallivuori, Software Architect at Solinor Oy</small></blockquote></dd><dt><img class="img-circle" src="http://m.c.lnkd.licdn.com/media/p/4/000/149/12d/0b8c772.jpg"></dt><dd><blockquote><p>"Käsityö on kuollut! Ilari innostuu haasteista, joilla käsityötä tehdään tarpeettomaksi. Automatisointi kaikessa, ei vain testaamisessa, on eteenpäin vievä voima. Kiinnostus uusiin ohjelmistokehityksen käytäntöihin, tuotteisiin ja ratkaisumalleihin on jatkuvaa ja Ilari seuraa useita alan julkaisuja päivittäin. Ilari seuloo mielellään jyvät akanoista käytännön kokeilemisen kautta ja päätyy sellaisiin ratkaisuihin, jotka ovat kestäviä ja tarjoavat hyötyä käyttäjilleen."</p><small>Arno Hietanen, Service Manager at Solinor Oy</small></blockquote></dd></dl></div></div></div><div class="quotes"><div class="container"><div class="quote row"><div class="col-md-6 col-md-offset-3"><blockquote class="up"><p>"Modern agile teams need some one to help them be more effective. Teams need proper tools and methodologies to ease their work and to make better products. Before they know how to test their code, measure the quality and work better as a team, they’re just a bunch of individuals. I’m the guy who can make a bunch of individuals in to a team and great teams in to awesome ones. Teams become more innovative and individuals become the shining stars of your office. I make the workflow smooth and I polish rough edges."</p><small>Ilari Mäkelä, Lead Quality Assurance Specialist at Solinor Oy</small></blockquote></div></div><div class="statistics row"><div class="col-md-3"><p><strong>1985</strong>When it all started</p></div><div class="col-md-3"><p><strong>1</strong>Employee</p></div><div class="col-md-3"><p><strong>0</strong>MEUR Turnover in 2013</p></div><div class="col-md-3"><p><strong>2014</strong>Stronger than ever</p></div></div><div class="quote row"><div class="col-md-6 col-md-offset-3"><blockquote class="down"><p>"My core knowhow is all kind of testing, continuous deployment and creating new innovative products. If I was to squeeze all my thoughts to one sentence I would say, my true passion is quality."</p><small>Ilari Mäkelä, Lead Quality Assurance Specialist at Solinor Oy</small></blockquote></div></div></div></div><div class="container"><div class="feelings row"><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_6624.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_6868.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_6899.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_6973.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_7554.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG-20130317-WA0000.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_6632.jpg"></div><div class="col-md-3 col-xs-6"><img class="img-responsive" src="/images/IMG_20130202_201232.jpg"></div></div><div class="footer row" id="contact"><div class="col-md-3"><h3>ILARI MÄKELÄ</h3></div><div class="col-md-3"><h3>ADDRESS</h3><a href="https://maps.google.com/maps?q=kolmas+linja+5&hl=en&sll=60.301103,24.851074&sspn=1.190695,2.427979&t=h&hnear=Kolmas+linja+5,+Helsinki,+Finland&z=16"><address>Kolmas Linja 5 B 55<br>00530 Helsinki<br>Finland</address></a></div><div class="col-md-3"><h3>EMAIL</h3><address><a href="ilari.makela@spoonfactory.fi">ilari.makela@spoonfactory.fi</a></address></div><div class="col-md-3"><h3>PHONE</h3><address><a href="tel:+358503743470">P +358 (0)50 374 3470</a></address></div></div></div><script>var _gaq=[['_setAccount','UA-20985195-1'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));</script></body></html>
+</style>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row header">
+                <div class="col-sm-2">
+                    <img src="/images/profile.jpg" class="img-responsive img-circle" />
+                </div>
+                <div class="col-sm-9">
+                    <h1>
+                        ILARI MÄKELÄ
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row application">
+                <div class="col-md-8">
+                    <div class="subtitle" style="background-color: #30B4E7;">
+                        <h2>
+                            ILARI MÄKELÄ
+                            <span>
+                                TÖRKEEN KOVA KOODAAJA
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6">
+                    <p>
+                        Olen tehnyt kaikkea; suunnitellut, koodannut, testannut, asentanut ja ylläpitänyt. Aloitin urani ylläpitäjänä ja pidin sitä ATK alan hienoimpana asiana. Kuitenkin ensimmäinen työ opiskelujen jälkeen vei koodauksen pariin ja siitä en olekaan sitten päässyt irti. Olen ollut frontend / backend koodaaja, kirjoittanut ja opettanut unittesteistä hyväksyntätesteihin. Vienyt kehityksen automatisoinnin avulla aivan uudelle tasolle CI ympäristöjen kanssa. Voisin jopa sano, että olen oikea Full-stack developer.
+                    </p>
+                    <p>
+                        Tähän mennessä olen kirjoittanut ja lukenut ainakin PHP, Python, C#, JavaScript, LESS, CSS, Shell script, Perl ja SQL kieliä. Puhun myös sujuvaa Suomea ja Englantikin taittuu. Tällä hetkellä opettelen Perliä lisää ja omatoimisissa projekteissani harjoittelen Node.js:ää. Kesäprojektina, jonka jo aloitin, olen ajatellut opettelevani vielä Clojurea. Uusien ohjelmointikielten opettelu on hyvin avartavaa.
+                    </p>
+                    <p>
+                        Minulla on suuri palo ja into oppia uutta ja auttaa muita jo oppimallani.
+                    </p>
+                    <p>
+                        Minulla on myös paljon osaamista koodaamisen ja palvelinten tunkkaamisen lisäksi. Tämän hetken työnkuvaani kuuluu tietoturvatestaus PCI DSS ympäristössä [https://www.pcisecuritystandards.org/security_standards/]. Lisäksi minulla on paljon tuntemusta ”Continuous Integration” –järjestelmistä ja monipuolisesta testauksesta.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pagebreak"></div>
+
+            <div class="row projects">
+                <div class="col-md-8">
+                    <div class="subtitle">
+                        <h2>
+                            EMPLOYEES
+                            <span>
+                                PROJECTS
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        Solinor Oy
+                    </h2>
+                    <span>
+                        Syyskuu - Nykyinen
+                    </span>
+                    <h3>
+                        Lead QA, Software Developer, Software Designer
+                    </h3>
+                    <p>
+                        Olen ollut mukana auttamassa Netsiä (entinen Luottokunta) PCI DSS –standardin (Payment Card Industry Data Security Standard) kanssa. Olemme tehneet Netsille maksujen välityspalvelua, jossa olen ollut mukana monessa eri roolissa vuosien varrella. Aloitin projektissa koodaajana. Kuitenkin kun aloitin Solinorilla oli meitä vain viisi henkilöä koko yrityksessä, joka pakotti meitä kaikkia tekemään monenlaisia tehtäviä. Noin pari vuotta sitten kiinnostuin automatisoinnista erityisen paljon, jonka myötä minun vastuulleni siirtyi Continuous Integration –palvelimet. Samalla kehitin kehittäjille työkaluja helpottaakseen ja auttaakseen heidän työtään.
+                    </p>
+                    <p>
+                        Olen myös ottanut suurta testausvastuuta projekteissa. Sen lisäksi olen kirjoittanut testausohjeita kehittäjille, automatisoinut testiajoja ja luonut virtuaalijärjestelmiä testauksen helpottamiseksi. Tällä hetkellä teen tietoturvatestausta ja tavoitteena on senkin mahdollisimman pitkälle viety automatisointi.
+                    </p>
+                    <p>
+                        Kehittäjänä olen pääasiassa tehnyt PHP:lla backend koodausta, mutta sen lisäksi olen ollut tekemässä hallintasivuja, jotka on pääasiassa tehty Sencha Ext JS frameworkilla.
+                    </p>
+                    <p>
+                        Maksuliikenne järjestelmä on ollut Solinorilla pääprojektini, mutta sen lisäksi olen ollut parissa muussakin projektissa. Niissä olen ollut DevOpsina automatisoimassa testaus- ja tuotantoympäristöjen luomisessa. Olen myös ollut auttamassa asiakasta kehitysprojektin suoraviivaistamisessa. Tein mm. työkaluja Pythonilla ja Jenkinsillä, joilla kehitysprosessia pystyttiin nopeuttamaan huomattavasti.
+                    </p>
+                    <p>
+                        Loppuun vielä tuhti ”Keyword Cloud” asioista, jotka on Solinorilla tullut tutuksi:
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>PHP</li>
+                                <li>JavaScript</li>
+                                <li>Jenkins</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Python</li>
+                                <li>Shell Scripting</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>DevOps</li>
+                                <li>Testausta</li>
+                                <li>Tietoturvaa</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Agile</li>
+                                <li>Perl</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 project">
+                    <h2>
+                        Aldata Finland Oy
+                    </h2>
+                    <span>
+                        Kesäkuu 2009 - Syyskuu 2010
+                    </span>
+                    <h3>
+                        Consultant
+                    </h3>
+                    <p>
+                        Aldatalla olin pääasiassa tekemässä kanta-asiakassivustoja, joista myymälöiden kanta-asiakkaat pääsi näkemään minkälaisia ostoksia he olivat tehneet. Lisäksi teimme Aldatan omalla Loyalty CMS järjestelmällä useita webbisivustoja. Aldatalla, eli tässä tapakauksessa tiimillämme, oli ylläpitovastuu sivustoista, jotka teimme.
+                    </p>
+                    <p>
+                        Minun työtehtäviini kuului sivujen taittoa, PhotoShop, CSS viilauksia, jQuery ja vanilla JavaScriptiä, PHP koodausta, MS Sql kyselyjä ja niiden optimointia. Ylläpitotehtävät sisälsi mm. paljon Linuxia, verkkoarkkitehtuuria ja DNS töitä.
+                    </p>
+                    <p>
+                        Alla listattuna asiakkaita, joille töitä teimme:
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Hemtex</li>
+                                <li>Nuorten Akatemia</li>
+                                <li>Hifi Studio 17</li>
+                                <li>Honkasen Puutarha</li>
+                                <li>Kotijäätelö</li>
+                                <li>Veikon Kone</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Halonen</li>
+                                <li>Carlson</li>
+                                <li>Holiday Club</li>
+                                <li>S-group hotels & restaurants</li>
+                                <li>Sokos Hotels & Radisson SAS</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Veikon Kone</li>
+                                <li>Finlandia Hotels</li>
+                                <li>Lähikauppa</li>
+                                <li>S-Group</li>
+                                <li>Kesko</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Bella Boats</li>
+                                <li>NRJ Finland</li>
+                                <li>Korkeasaari Zoo</li>
+                                <li>Lojer</li>
+                                <li>Nuorten Akatemia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix pagebreak"></div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        Tieto
+                    </h2>
+                    <span>
+                        Lokakuu 2008 – Toukokuu 2009
+                    </span>
+                    <h3>
+                        Junior Software Developer
+                    </h3>
+                    <p>
+                        Teimme Microsoft SharePointilla ja C# .NET:llä Keskolle Intranet palvelua. Olin Junior Software Engineer:inä mukana kehittämässä palvelua.
+                    </p>
+                </div>
+                <div class="col-md-6 project">
+                    <h2>
+                        NetHit Oy
+                    </h2>
+                    <span>
+                        Tammikuu 2007 – Toukokuu 2008
+                    </span>
+                    <h3>
+                        Harjoittelu
+                    </h3>
+                    <p>
+                        Olin Linux ja *BSD ylläpitäjä harjoittelija opiskelujeni ohessa. Pääsin käpistelemään kaikkea toimiston sisäverkon palveluja Samba serveristä verkkoinfstrustuurin kiemuroihin. Tuotantokoneiden asennukset ja konfigurointi oli myös työtäni esimieheni avustuksella. Huomattavasti opettavaisempi harjoittelu kuin osasin odottaa ja tästä on jäänyt muistiin paljon hyviä asioita.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pagebreak"></div>
+
+            <div class="github row">
+                <div class="col-md-8">
+                    <div class="subtitle">
+                        <h2>
+                            GITHUB.COM
+                            <span>
+                                ILARIMAKELA
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-6 project">
+                    <h2>
+                        Bune - Bune unless no events
+                    </h2>
+                    <div class="progress">
+                        <div class="progress-bar shell" role="progressbar" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" style="width: 64%;">
+                            Shell 64%
+                        </div>
+                        <div class="progress-bar perl" role="progressbar" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100" style="width: 36%;">
+                            Perl 36%
+                        </div>
+                    </div>
+                    <p>
+                        Bune on esimmäinen (ja pahasti keskeneriänen) Perl projektini. Scripti tarkkailee kansioita ja tiedostoja muutosten varalta. Kuten esimerkiksi Gruntin Watch [https://www.npmjs.org/package/grunt-contrib-watch] tai Guard [https://github.com/guard/guard]. Ero on siinä, että Bune käyttää Yamlia ja regexpiä ja on siksi parampi kuin kilpailijansa.
+                    </p>
+                    <p>
+                        Olin puhumassa DevOps illassa [http://www.meetup.com/devops-finland/events/166390402/] viime maaliskuussa Dockerista [https://www.docker.io/]. Siellä Bune sai ensi esiintymisesä, koska esittelin RPM paketointia Dockerin avulla. Dockerin huima nopeus sai yleisön hämmentymään.
+                    </p>
+                </div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        dotfiles
+                    </h2>
+                    <div class="progress">
+                        <div class="progress-bar perl" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" style="width: 12%;">
+                            Omaa 12%
+                        </div>
+                        <div class="progress-bar shell" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%;">
+                            Lainattua 88%
+                        </div>
+                    </div>
+                    <p>
+                        Paljon koodia, snipettejä ja konfigurointia, jotta iKone saadaan taivutettua halutunlaiseksi. Paljon lainattua ja lisäksi oma kädenjälki päällä.
+                    </p>
+                </div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        wifisd
+                    </h2>
+                    <div class="progress">
+                        <div class="progress-bar shell" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            Shell 100%
+                        </div>
+                    </div>
+                    <p>
+                        Wifisd on WeddingCameran version 2.0. Ohjelma tarkkailee wlan verkkoa ja etsii Transcendin Wi-Fi SD muistikorttia, joka on järjestelmäkamerassani, kotiverkostani. Kun se löytyy, alkaa wifisd ladata kuvia automaattisesti.
+                    </p>
+                </div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        WeddingCamera
+                    </h2>
+                    <div class="progress">
+                        <div class="progress-bar php" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%;">
+                            PHP 99.9%
+                        </div>
+                        <div class="progress-bar shell" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" style="width: 12%;">
+                            Shell 0.1%
+                        </div>
+                    </div>
+                    <p>
+                        Ystäväni halusi häihinsä "Valokuvavieraskirjan". Idea oli ottaa kaikista vieraista kuva, tulostaa ne ja sen jälkeen vieraat voisivat kirjoittaa terveisensä kuvan viereen. Ostin Transcendin Wi-Fi SD muistikortin ja koodasin tämän projektin. Onnekseni löysin muistikortista lähes kaikki mahdolliset tietoturva-aukot, ja ohjelman teko sen jälkeen olikin helppoa.
+                    </p>
+                    <p>
+                        Ohjelma tarkkailee Wlan verkkoa ja lataa automaattisesti kuvat muistikortilta. Kun kuvat on ladattu, lähetetään ne tulostimelle tulostettavaksi.
+                    </p>
+                </div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        Contribute
+                    </h2>
+                    <div class="progress">
+                        <div class="progress-bar js" role="progressbar" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100" style="width: 34%;">
+                            JavaScript 34%
+                        </div>
+                        <div class="progress-bar shell" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                            Shell 66%
+                        </div>
+                    </div>
+                    <p>
+                        Hieman olen koodaustaitojani jakanut kouralliseen Github projekteja kuten
+                        <ul>
+                            <li>vagrant-centos [https://github.com/2creatives/vagrant-centos]</li>
+                            <li>grunt-phpunit [https://github.com/SaschaGalley/grunt-phpunit]</li>
+                            <li>starthq [https://github.com/starthq/search]</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="footer row">
+                <div class="col-md-8">
+                    <div class="subtitle">
+                        <h2>
+                            OTA YHTEYTTÄ
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-home"></span>
+                    <span class="text"> Huvilakatu 5, 00150 Helsinki</span>
+                    <br />
+                    <span class="glyphicon glyphicon-phone-alt"></span>
+                    <span class="text"> 050 374 3470</span>
+                    <br />
+                    <span class="glyphicon glyphicon-print"></span>
+                    <span class="text"> ilari.makela@spoonfactory.fi</span>
+                    <br />
+                    <span class="fa fa-github-alt"></span>
+                    <span class="text"> Github [http://github.com/ilarimakela]</span>
+                    <br />
+                    <span class="fa fa-linkedin"></span>
+                    <span class="text"> Linkedin [http://fi.linkedin.com/in/ilarim]</span>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        var _gaq=[['_setAccount','UA-20985195-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    </body>
+</html>
