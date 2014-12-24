@@ -9,122 +9,89 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/styles/main.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,600,700' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
 
-    <div
-        class="parallax-image-wrapper parallax-image-wrapper-100"
-        data-anchor-target=".gap"
-        data-bottom-top="transform:translate3d(0px, 200%, 0px)"
-        data-top-bottom="transform:translate3d(0px, 0%, 0px)">
-
-        <div
-            class="parallax-image parallax-image-100"
-            style="background-image:url(/assets/images/background-city.jpg)"
-            data-anchor-target=".gap"
-            data-bottom-top="transform: translate3d(0px, -80%, 0px);"
-            data-top-bottom="transform: translate3d(0px, 80%, 0px);"
-        ></div>
-    </div>
-
-    <div
-        class="parallax-image-wrapper parallax-image-wrapper-50"
-        data-anchor-target="#content + .gap"
-        data-bottom-top="transform:translate3d(0px, 300%, 0px)"
-        data-top-bottom="transform:translate3d(0px, 0%, 0px)">
-
-        <div
-            class="parallax-image parallax-image-50"
-            style="background-image:url(/assets/images/map.jpeg)"
-            data-anchor-target="#content + .gap"
-            data-bottom-top="transform: translate3d(0px, -60%, 0px);"
-            data-top-bottom="transform: translate3d(0px, 60%, 0px);"
-        ></div>
-    </div>
-
-    <div id="skrollr-body">
-        <div class="name gap gap-100" style="background-image:url(/assets/images/background-city.jpg);">
-            <div>
-                <h1>Spoon Factory</h1>
+    <div class="container banner">
+        <div class="col-sm-5 col-sm-offset-1 spoonfactory">
+            <div class="text-center">
+                <h1><span>Spoon</span><br />Factory</h1>
             </div>
         </div>
-        <div class="container" id="content">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2>WORK</h2>
-                </div>
-
-                <div class="col-sm-4">
-                    <img class="img-responsive img-thumbnail" src="/assets/images/jukkapoika.jpg" />
-                    <h3>Jukka Poika</h3>
-                    <span>Case: Webshop</span>
-                    <p>At the moment the best Finnish artist and song writer.</p>
-                </div>
-                
-                <div class="col-sm-4">
-                    <img class="img-responsive img-thumbnail" src="/assets/images/apogee.jpg" />
-                    <h3>Apogee Oy</h3>
-                    <span>Case: Multiple Web Services</span>
-                    <p>Creates videos in the way clients want: pristine quality, easy and fast. Apogee does live webcasts, TV commercials, multi-camera event recordings along with instructional, promotional and corporate videos.</p>
-                </div>
-                
-                <div class="col-sm-4">
-                    <img class="img-responsive img-thumbnail" src="/assets/images/kukka.png" />
-                    <h3>Kotipalvelu Kukka</h3>
-                    <span>Case: Website</span>
-                    <p>Kukka household cleaning services make your return from work an enjoyable experience, as the clean home will welcome you to rest and relax!</p>
-                </div>
-
-                <div class="col-sm-4 visible-xs">
-                    <!-- Weirdest quickfix for mobile -->
-                    <h3>&nbsp;</h3>
-                    <p>&nbsp;</p>
-                    <br><br>
-                </div>
-            </div>
+        <div class="col-sm-6 text-center">
+            <img alt="Desktop" class="img-circle" src="/assets/images/background-desk.jpg">
         </div>
-        <div class="gap gap-50" style="background-image:url(/assets/images/map.jpeg);"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <strong class="corp">Spoon Factory</strong>
-                </div>
-                <div class="col-sm-3">
-                    <address>
-                        <strong>ADDRESS</strong><br>
-                        Huvilakatu 5-7 A 2<br>
-                        00150 Helsinki
-                    </address>
-                </div>
-                <div class="col-sm-3">
-                    <address>
-                        <strong>CONTACT</strong><br>
-                        ilari.makela@spoonfactory.fi<br>
-                        +358 50 374 3470
-                    </address>
-                </div>
-                <div class="col-sm-3">
-                    <address>
-                        <strong>FOLLOW</strong><br>
-                        <a href="https://github.com/ilarimakela">GitHub</a><br>
-                        <a href="https://twitter.com/ilarimkel">Twitter</a><br>
-                        <a href="http://fi.linkedin.com/in/ilarim/">LinkedIn</a>
-                    </address>
+    </div>
+
+    <div class="container work">
+        <div class="row">
+            <div class="col-md-9 col-md-offset-1">
+                <div class="timeline">
+                    <h3 class="hidden-xs">&nbsp;</h3>
+                    <article><h2>Jukka Poika</h2></article>
+                    <article class="jukkapoika">
+                        <span>Case: Webshop</span>
+                        <img class="img-thumbnail" alt="Jukka Poika" src="/assets/images/jukkapoika.jpg">
+                        <p>At the moment the best Finnish artist and song writer.</p>
+                    </article>
+                    <article id="apogee"><h2>Apogee</h2></article>
+                    <article class="apogee">
+                        <span>Case: Multiple Web Services</span>
+                        <img class="img-thumbnail" alt="Apogee" src="/assets/images/apogee.jpg">
+                        <p>Creates videos in the way clients want: pristine quality, easy and fast. Apogee does live webcasts, TV commercials, multi-camera event recordings along with instructional, promotional and corporate videos.</p>
+                    </article>
+                    <article id="kukka"><h2>Kotipalvelu Kukka</h2></article>
+                    <article class="kukka">
+                        <span>Case: Website</span>
+                        <img alt="Kotipalvelu Kukka" src="/assets/images/kukka.png">
+                        <p>Kukka household cleaning services make your return from work an enjoyable experience, as the clean home will welcome you to rest and relax!</p>
+                    </article>
                 </div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="/assets/scripts//skrollr-0.6.29.min.js"></script>
-    <script type="text/javascript">
-    skrollr.init({
-        smoothScrolling: false,
-        mobileDeceleration: 0.004
-    });
-    </script>
+    <!--div class="map">&nbsp;</div-->
+
+    <div class="container contact">
+        <div class="row">
+            <div class="col-sm-3">
+                <address>
+                    <strong>Spoon Factory</strong>
+                </address>
+            </div>
+            <div class="col-sm-3">
+                <address>
+                    <strong>ADDRESS</strong><br>
+                    Huvilakatu 5-7 A 2<br>
+                    00150 Helsinki
+                </address>
+            </div>
+            <div class="col-sm-3">
+                <address>
+                    <strong>CONTACT</strong><br>
+                    ilari.makela@spoonfactory.fi<br>
+                    +358 50 374 3470
+                </address>
+            </div>
+            <div class="col-sm-3">
+                <address>
+                    <strong>FOLLOW</strong><br>
+                    <a href="https://github.com/ilarimakela">GitHub</a><br>
+                    <a href="https://twitter.com/ilarimkel">Twitter</a><br>
+                    <a href="http://fi.linkedin.com/in/ilarim/">LinkedIn</a>
+                </address>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
