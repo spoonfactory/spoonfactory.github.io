@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>
+         Ilari Mäkelä - Lead Developer
+      </title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<style>
+
+p, li {
+    font-size: 16px;
+}
+
+.subtitle {
+    background-color: rgb(48,180,231);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 11px 22px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.subtitle h2 {
+    font-size: 32px;
+    color: white;
+    margin: 0;
+}
+
+.subtitle h2 span {
+    border-left: 2px solid #FFFFFF;
+    padding-left: 22px;
+    margin-left: 13px;
+}
+
+.header .col-sm-2 {
+    margin-top: 40px;
+}
+
+.header .col-sm-9 {
+    margin-top: 75px;
+}
+
+.header img {
+    width: 165px;
+}
+
+.header .col-sm-9 h1 {
+    font-size: 50px;
+    line-height: 40px;
+    margin-bottom: 0;
+}
+
+.header .col-sm-9 h2 {
+    font-size: 24px;
+    margin-top: 0;
+    color: #6CBEFF;
+}
+
+.projects .project h2 {
+    color: #00A4E4;
+    margin-bottom: 5px;
+}
+
+.projects .project span {
+    color: #ABB2BF;
+}
+
+.projects .project h3 {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.footer {
+    margin-top: 150px;
+    margin-bottom: 300px;
+}
+
+.footer .contact,
+.footer .glyphicon,
+.footer .fa {
+    color: rgb(48,180,231);
+}
+
+.footer a {
+    color: #000000;
+}
+
+</style>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row header">
+                <div class="col-sm-2">
+                    <img src="/images/profile.jpg" class="img-responsive img-circle" />
+                </div>
+                <div class="col-sm-9">
+                    <h1>
+                        ILARI MÄKELÄ
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row application">
+                <div class="col-md-7">
+                    <div class="subtitle">
+                        <h2>
+                            LEAD DEVELOPER
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6">
+                    <p>
+                        Olen tehnyt kaikkea; suunnitellut, koodannut, testannut, asentanut ja ylläpitänyt. Aloitin urani ylläpitäjänä ja pidin sitä ATK alan hienoimpana asiana. Kuitenkin ensimmäinen työ opiskelujen jälkeen vei koodauksen pariin ja siitä en olekaan sitten päässyt irti. Olen ollut frontend / backend koodaaja, kirjoittanut ja opettanut unittesteistä hyväksyntätesteihin. Vienyt kehityksen automatisoinnin avulla aivan uudelle tasolle CI ympäristöjen kanssa. Voisin jopa sano, että olen oikea Full-stack developer.
+                    </p>
+                    <p>
+                        Tähän mennessä olen kirjoittanut ja lukenut ainakin PHP, Python, C#, JavaScript, LESS, CSS, Shell script, Perl ja SQL kieliä. Puhun myös sujuvaa Suomea ja Englantikin taittuu. Tällä hetkellä opettelen Perliä lisää ja omatoimisissa projekteissani harjoittelen Node.js:ää. Kesäprojektina olen ajatellut opettelevani vielä Clojurea, koska se kuulostaa ja näyttää hyvin mielenkiintoiselta. Uusien ohjelmointikielten opettelu on hyvin avartavaa.
+                    </p>
+                    <p>
+                        Minulla on suuri palo ja into oppia uutta ja auttaa muita jo oppimallani.
+                    </p>
+                    <p>
+                        Minulla on myös paljon osaamista koodaamisen ja palvelinten tunkkaamisen lisäksi. Tämän hetken työnkuvaani kuuluu tietoturvatestaus ja aion tehdä siitä mahdollisimman pitkälle automatisoidun. Lisäksi minulla on paljon tuntemusta ”Continuous Integration” –järjestelmistä ja monipuolisesta testauksesta.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="row projects">
+                <div class="col-md-7">
+                    <div class="subtitle">
+                        <h2>
+                            EMPLOYEES
+                            <span>
+                                PROJECTS
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        Solinor Oy
+                    </h2>
+                    <span>
+                        Syyskuu - Nykyinen
+                    </span>
+                    <h3>
+                        Lead QA, Software Developer, Software Designer
+                    </h3>
+                    <p>
+                        Olen ollut mukana auttamassa Netsiä (entinen Luottokunta) PCI DSS –standardin (Payment Card Industry Data Security Standard) kanssa. Olemme tehneet Netsille maksujen välityspalvelua, jossa olen ollut mukana monessa eri roolissa vuosien varrella. Aloitin projektissa PHP koodaajana. Kuitenkin kun aloitin Solinorilla oli meitä vain viisi henkilöä koko yrityksessä, joka pakotti meitä kaikkia tekemään monenlaisia tehtäviä. Noin pari vuotta sitten kiinnostuin automatisoinnista erityisen paljon, jonka myötä minun vastuulleni siirtyi Continuous Integration –palvelimet. Samalla kehitin kehittäjille työkaluja helpottaakseen ja auttaakseen heidän työtään.
+                    </p>
+                    <p>
+                        Olen myös ottanut suurta testausvastuuta projekteissa. Sen lisäksi olen kirjoittanut testausohjeita kehittäjille, automatisoinut testiajoja ja luonut virtuaalijärjestelmiä testauksen helpottamiseksi. Tällä hetkellä teen tietoturvatestausta ja tavoitteena on senkin mahdollisimman pitkälle viety automatisointi.
+                    </p>
+                    <p>
+                        Kehittäjänä olen pääasiassa tehnyt PHP:lla backend koodausta, mutta sen lisäksi olen ollut tekemässä hallintasivuja, jotka on pääasiassa tehty Sencha Ext JS frameworkilla.
+                    </p>
+                    <p>
+                        Maksuliikenne järjestelmä on ollut Solinorilla pääprojektini, mutta sen lisäksi olen ollut parissa muussakin projektissa. Niissä olen ollut DevOpsina automatisoimassa testaus- ja tuotantoympäristöjen luomisessa. Olen myös ollut auttamassa asiakasta kehitysprojektin suoraviivaistamisessa. Tein mm. työkaluja Pythonilla ja Jenkinsillä, joilla kehitysprosessia pystyttiin nopeuttamaan huomattavasti.
+                    </p>
+                    <p>
+                        Loppuun vielä tuhti ”Keyword Cloud” asioista, jotka on Solinorilla tullut tutuksi:
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>PHP</li>
+                                <li>JavaScript</li>
+                                <li>Jenkins</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Python</li>
+                                <li>Shell Scripting</li>
+                                <li>Perl</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>DevOps</li>
+                                <li>Testausta</li>
+                                <li>Tietoturvaa</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Agile</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 project">
+                    <h2>
+                        Aldata Finland Oy
+                    </h2>
+                    <span>
+                        Kesäkuu 2009 - Syyskuu 2010
+                    </span>
+                    <h3>
+                        Consultant
+                    </h3>
+                    <p>
+                        Aldatalla olin pääasiassa tekemässä kanta-asiakassivustoja, joista myymälöiden kanta-asiakkaat pääsi näkemään minkälaisia ostoksia he olivat tehneet. Lisäksi teimme Aldatan omalla Loyalty CMS järjestelmällä useita webbisivustoja. Aldatalla, eli tässä tapakauksessa tiimillämme, oli ylläpitovastuu sivustoista, jotka teimme.
+                    </p>
+                    <p>
+                        Minun työtehtäviini kuului sivujen taittoa, PhotoShop, CSS viilauksia, jQuery ja vanilla JavaScriptiä, PHP koodausta, MS Sql kyselyjen kirjoittamista ja optimointia. Ylläpitotehtävät sisälsi mm. paljon Linuxia, verkkoarkkitehtuuria ja DNS töitä.
+                    </p>
+                    <p>
+                        Alla listattuna asiakkaita, joille töitä teimme:
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Hemtex</li>
+                                <li>Nuorten Akatemia</li>
+                                <li>Hifi Studio 17</li>
+                                <li>Honkasen Puutarha</li>
+                                <li>Kotijäätelö</li>
+                                <li>Veikon Kone</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Halonen</li>
+                                <li>Carlson</li>
+                                <li>Holiday Club</li>
+                                <li>S-group hotels & restaurants</li>
+                                <li>Sokos Hotels & Radisson SAS</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Veikon Kone</li>
+                                <li>Finlandia Hotels</li>
+                                <li>Lähikauppa</li>
+                                <li>S-Group</li>
+                                <li>Kesko</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+                            <ul>
+                                <li>Bella Boats</li>
+                                <li>NRJ Finland</li>
+                                <li>Korkeasaari Zoo</li>
+                                <li>Lojer</li>
+                                <li>Nuorten Akatemia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-md-6 project">
+                    <h2>
+                        Tieto
+                    </h2>
+                    <span>
+                        Lokakuu 2008 – Toukokuu 2009
+                    </span>
+                    <h3>
+                        Junior Software Developer
+                    </h3>
+                    <p>
+                        Teimme Microsoft SharePointilla ja C# .NET:llä Keskolle Intranet palvelua. Olin Junior Software Engineer:inä mukana kehittämässä palvelua.
+                    </p>
+                </div>
+                <div class="col-md-6 project">
+                    <h2>
+                        NetHit Oy
+                    </h2>
+                    <span>
+                        Tammikuu 2007 – Toukokuu 2008
+                    </span>
+                    <h3>
+                        Harjoittelu
+                    </h3>
+                    <p>
+                        Olin Linux ja *BSD ylläpitäjä harjoittelija opiskelujeni ohessa. Pääsin käpistelemään kaikkea toimiston sisäverkon palveluja Samba serveristä verkkoinfstrustuurin kiemuroihin. Tuotantokoneiden asennukset ja konfigurointi oli myös työtäni esimieheni avustuksella. Huomattavasti opettavaisempi harjoittelu kuin osasin odottaa ja tästä on jäänyt muistiin paljon hyviä asioita.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="footer row">
+                <div class="col-sm-3 col-sm-offset-3 ">
+                    <div class="pull-right hidden-xs">
+                        <h2 class="contact">Ota yhteyttä</h2>
+                    </div>
+                    <h2 class="visible-xs contact">Ota yhteyttä</h2>
+                </div>
+                <div class="col-md-6">
+                    <strong>Ilari Mäkelä</strong>
+                    <br />
+                    <span class="glyphicon glyphicon-home"></span> Huvilakatu 5, 00150 Helsinki
+                    <br />
+                    <span class="glyphicon glyphicon-phone-alt"></span> 050 374 3470
+                    <br />
+                    <span class="glyphicon glyphicon-print"></span> ilari.makela@spoonfactory.fi
+                    <br />
+                    <a href="http://ilarimakela.blogspot.fi/">
+                        <i class="fa fa-book"></i> Blogi
+                    </a>
+                    <br />
+                    <a href="http://github.com/ilarimakela">
+                        <i class="fa fa-github-alt"></i> Github
+                    </a>
+                    <br />
+                    <a href="http://fi.linkedin.com/in/ilarim">
+                        <i class="fa fa-linkedin"></i> Linkedin
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        var _gaq=[['_setAccount','UA-20985195-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    </body>
+</html>
