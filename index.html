@@ -1,79 +1,936 @@
 <!DOCTYPE html>
-<html class="no-skrollr">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spoon Factory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+:root {
+  --black: #080808;
+  --charcoal: #111111;
+  --surface: #161616;
+  --border: #242424;
+  --gold: #C9A84C;
+  --gold-dim: #8a6f32;
+  --cream: #E8E0D0;
+  --muted: #5a5a5a;
+  --text: #c8c0b0;
+}
 
-    <title>Spoon Factory</title>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/styles/main.css">
+html { scroll-behavior: smooth; }
 
-    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
+  cursor: none;
+}
 
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,600,700' rel='stylesheet' type='text/css'>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+.cursor {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+}
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold-dim);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s, height 0.15s;
+  opacity: 0.6;
+}
 
-  ga('create', 'UA-20985195-1', 'auto');
-  ga('send', 'pageview');
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 500;
+  opacity: 0.35;
+}
 
-</script>
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 52px;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.96), transparent);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--cream);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid var(--gold-dim);
+  padding: 10px 22px;
+  transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--black); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 52px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.03) 0%, transparent 60%);
+}
+.hero-line {
+  position: absolute;
+  top: 0; right: 140px;
+  width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  opacity: 0.5;
+}
+.hero-index {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.3s;
+}
+.hero-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(64px, 9vw, 130px);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  max-width: 900px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.5s;
+}
+.hero-heading em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  max-width: 480px;
+  margin-top: 40px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-size: 13px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 0.8s;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 52px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 1s;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  font-family: 'DM Mono', monospace;
+  transition: all 0.3s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--cream); }
+.btn-ghost {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-ghost::after { content: '→'; transition: transform 0.3s; }
+.btn-ghost:hover { color: var(--cream); }
+.btn-ghost:hover::after { transform: translateX(6px); }
+.hero-scroll {
+  position: absolute;
+  right: 52px; bottom: 80px;
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.4s;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+}
+
+/* TICKER */
+.ticker {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 28s linear infinite;
+  white-space: nowrap;
+}
+.ticker-item {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-shrink: 0;
+}
+.ticker-item span { color: var(--gold); font-size: 9px; }
+
+/* MANIFESTO */
+.manifesto {
+  padding: 140px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.manifesto-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.manifesto-label::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+}
+.manifesto h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+.manifesto h2 em { font-style: italic; color: var(--gold); }
+.manifesto-right { padding-top: 80px; }
+.manifesto-right p {
+  line-height: 2;
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+.manifesto-stat {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+}
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+}
+.stat-number sup { font-size: 20px; color: var(--gold); }
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* SERVICES */
+.services { padding: 0 52px 140px; }
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.section-label::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+}
+.services-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 300;
+  color: var(--cream);
+}
+.services-count {
+  font-size: 72px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.service-card {
+  background: var(--black);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: left;
+}
+.service-card:hover { background: var(--surface); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  margin-bottom: 40px;
+}
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.service-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.service-tags {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+}
+
+/* APPROACH */
+.approach {
+  background: var(--charcoal);
+  padding: 140px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.approach::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+}
+.approach-inner { max-width: 1200px; margin: 0 auto; }
+.approach-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  color: var(--cream);
+  max-width: 600px;
+  line-height: 1.15;
+  margin-top: 16px;
+}
+.approach-heading em { font-style: italic; color: var(--gold); }
+.approach-steps {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+.step {
+  position: relative;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px;
+  font-weight: 300;
+  color: var(--surface);
+  line-height: 1;
+  margin-bottom: -20px;
+}
+.step h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+.step p { font-size: 12px; line-height: 1.9; color: var(--muted); }
+
+/* ENGAGEMENTS */
+.engagements { padding: 140px 52px; }
+.engagements-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-top: 16px;
+}
+.engagements-heading em { font-style: italic; color: var(--gold); }
+.engagements-grid {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+}
+.eng-card {
+  background: var(--black);
+  padding: 64px 48px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+.eng-card:hover { background: var(--surface); }
+.eng-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 6px 14px;
+  margin-bottom: 36px;
+}
+.eng-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.eng-card p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.eng-list {
+  margin-top: 36px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.eng-list li {
+  font-size: 12px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eng-list li::before {
+  content: '';
+  width: 16px; height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.eng-bg-num {
+  position: absolute;
+  bottom: -20px; right: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 160px;
+  font-weight: 300;
+  color: var(--surface);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* CTA */
+.cta-section {
+  background: var(--charcoal);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 140px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+}
+.cta-section h2 em { font-style: italic; color: var(--gold); }
+.cta-right p {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+.cta-contact { display: flex; flex-direction: column; gap: 20px; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s;
+  font-size: 13px;
+}
+.contact-item:hover { color: var(--gold); }
+.contact-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+footer {
+  padding: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.footer-logo span { color: var(--gold); }
+.footer-copy { font-size: 11px; letter-spacing: 0.1em; color: var(--muted); }
+.footer-links { display: flex; gap: 32px; list-style: none; }
+.footer-links a {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 </head>
-
 <body>
 
-    <div class="container banner">
-        <div class="col-sm-5 col-sm-offset-1 spoonfactory">
-            <div class="text-center">
-                <h1><span>Spoon</span><br />Factory</h1>
-            </div>
-        </div>
-        <div class="col-sm-6 text-center">
-            <img alt="Desktop" class="img-circle" src="/assets/images/background-desk.jpg">
-        </div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Spoon <span>Factory</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Engage Us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-index">Spoon Factory — Technology Partner</div>
+  <h1 class="hero-heading">
+    We lead<br>
+    from<br>
+    <em>inside.</em>
+  </h1>
+  <p class="hero-sub">
+    An embedded technology partner for large organisations that demand senior expertise, strategic clarity, and delivery without compromise.
+  </p>
+  <div class="hero-actions">
+    <a href="#engagements" class="btn-primary">How We Engage</a>
+    <a href="#services" class="btn-ghost">Our Capabilities</a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">Software Development <span>&#10022;</span> Technical Leadership <span>&#10022;</span> Cloud &amp; DevOps <span>&#10022;</span> Digital Transformation <span>&#10022;</span> Enterprise Consulting <span>&#10022;</span> Systems Architecture <span>&#10022;</span> Programme Management <span>&#10022;</span></div>
+    <div class="ticker-item">Software Development <span>&#10022;</span> Technical Leadership <span>&#10022;</span> Cloud &amp; DevOps <span>&#10022;</span> Digital Transformation <span>&#10022;</span> Enterprise Consulting <span>&#10022;</span> Systems Architecture <span>&#10022;</span> Programme Management <span>&#10022;</span></div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-left reveal">
+    <div class="manifesto-label">Our Conviction</div>
+    <h2>
+      The best technology<br>
+      decisions are made by<br>
+      people <em>in the room.</em>
+    </h2>
+  </div>
+  <div class="manifesto-right reveal">
+    <p>
+      We have operated inside some of Finland's most complex technology environments — organisations where the stakes are high, the systems are critical, and the margin for error is narrow.
+    </p>
+    <p>
+      Spoon Factory doesn't consult from the outside. We embed at the leadership level, take ownership of outcomes, and bring senior-grade engineering capability to every engagement. No account managers. No junior hand-offs.
+    </p>
+    <div class="manifesto-stat">
+      <div>
+        <div class="stat-number">15<sup>+</sup></div>
+        <div class="stat-label">Years in Enterprise Tech</div>
+      </div>
+      <div>
+        <div class="stat-number">&#8734;</div>
+        <div class="stat-label">Tolerance for Complexity</div>
+      </div>
     </div>
-    
-    <!--div class="map">&nbsp;</div-->
+  </div>
+</section>
 
-    <div class="container contact" style="text-align: center;">
-        
-        <div class="row">
-            <div class="col-sm-3">
-                <address>
-                    <strong>Spoon Factory Oy</strong><br>
-                    Y-tunnus 3246043-1 
-                </address>
-            </div>
-            <div class="col-sm-3">
-                <address>
-                    <strong>ADDRESS</strong><br>
-                    Samoankuja 3 A 1<br>
-                    00220 Helsinki
-                </address>
-            </div>
-            <div class="col-sm-3">
-                <address>
-                    <strong>CONTACT</strong><br>
-                    ilari.mukka@spoonfactory.fi<br>
-                    +358 50 374 3470
-                </address>
-            </div>
-            <div class="col-sm-3">
-                <address>
-                    <strong>FOLLOW</strong><br>
-                    <a href="https://github.com/ilarimukka">GitHub</a><br>
-                    <a href="http://fi.linkedin.com/in/ilarimukka/">LinkedIn</a>
-                </address>
-            </div>
-        </div>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2>Core Capabilities</h2>
     </div>
+    <div class="services-count">04</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <h3>Software Development</h3>
+      <p>Custom software built to enterprise standards. From greenfield architecture to legacy evolution — we own the full delivery cycle, with quality and maintainability as non-negotiables.</p>
+      <div class="service-tags">
+        <span class="tag">Architecture</span>
+        <span class="tag">Custom Software</span>
+        <span class="tag">Full-Stack</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <h3>Technical Leadership</h3>
+      <p>Senior-level oversight embedded into your organisation. We bridge the gap between business objectives and engineering reality — leading teams, managing stakeholders, and keeping complex programmes on track.</p>
+      <div class="service-tags">
+        <span class="tag">Programme Mgmt</span>
+        <span class="tag">Stakeholder Mgmt</span>
+        <span class="tag">Delivery</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <h3>Cloud &amp; DevOps</h3>
+      <p>Resilient, secure, and cost-efficient cloud environments. We design and operate infrastructure that supports your business at scale — without becoming a liability when it matters most.</p>
+      <div class="service-tags">
+        <span class="tag">Cloud Architecture</span>
+        <span class="tag">Reliability</span>
+        <span class="tag">Automation</span>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <h3>Digital Transformation</h3>
+      <p>Structured change at the intersection of technology and organisation. We help large companies modernise without disruption — aligning systems, teams, and strategy toward a coherent future state.</p>
+      <div class="service-tags">
+        <span class="tag">Modernisation</span>
+        <span class="tag">Strategy</span>
+        <span class="tag">Change Mgmt</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div class="section-label reveal">How We Think</div>
+    <h2 class="approach-heading reveal">
+      Rigorous thinking.<br>
+      <em>Relentless</em> execution.
+    </h2>
+    <div class="approach-steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Diagnose</h3>
+        <p>We open every engagement with structured discovery. We map your business model, technology landscape, team capability, and constraints before forming any recommendations.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Architect</h3>
+        <p>We design a technology roadmap aligned to your objectives — not a generic best-practice framework, but a specific plan built for your specific situation and your specific organisation.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Execute</h3>
+        <p>We build, deploy and iterate with full accountability. Embedded in your team. Transparent on progress. Focused on outcomes you can measure in revenue, reliability, and speed.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ENGAGEMENTS -->
+<section class="engagements" id="engagements">
+  <div class="section-label reveal">How We Work</div>
+  <h2 class="engagements-heading reveal">
+    Three ways to bring<br>us <em>inside.</em>
+  </h2>
+  <div class="engagements-grid">
+    <div class="eng-card reveal">
+      <div class="eng-badge">Embedded</div>
+      <h3>Part of<br>Your Team</h3>
+      <p>We join your organisation as a fully integrated capability — attending the right meetings, holding the right accountability, and operating as a trusted internal function for as long as you need.</p>
+      <ul class="eng-list">
+        <li>Senior leadership presence</li>
+        <li>Long-term engagements</li>
+        <li>Full delivery ownership</li>
+        <li>Scales with your needs</li>
+      </ul>
+      <div class="eng-bg-num">01</div>
+    </div>
+    <div class="eng-card reveal">
+      <div class="eng-badge">Retained</div>
+      <h3>On Call,<br>Always Aligned</h3>
+      <p>A standing relationship that gives you priority access to senior technology expertise — for ongoing advisory, architecture decisions, and critical moments that cannot wait for a procurement cycle.</p>
+      <ul class="eng-list">
+        <li>Strategic technology advisory</li>
+        <li>Architecture &amp; design reviews</li>
+        <li>Escalation support</li>
+        <li>Predictable monthly commitment</li>
+      </ul>
+      <div class="eng-bg-num">02</div>
+    </div>
+    <div class="eng-card reveal">
+      <div class="eng-badge">Programme</div>
+      <h3>Defined Scope,<br>Full Ownership</h3>
+      <p>A specific initiative, delivered end-to-end. We take responsibility for outcomes — not just effort. Clear milestones, rigorous governance, and a senior lead accountable from kickoff to handover.</p>
+      <ul class="eng-list">
+        <li>Fixed-scope engagements</li>
+        <li>End-to-end delivery</li>
+        <li>Milestone-based governance</li>
+        <li>Clean, documented handover</li>
+      </ul>
+      <div class="eng-bg-num">03</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="reveal">
+    <h2>
+      The right partner<br>
+      is already<br>
+      <em>expensive to miss.</em>
+    </h2>
+  </div>
+  <div class="cta-right reveal">
+    <p>
+      We work with a select number of organisations at any given time. If you are evaluating a technology initiative that requires genuine senior ownership, we would like to hear about it.
+    </p>
+    <div class="cta-contact">
+      <a href="mailto:hello@spoonfactory.fi" class="contact-item">
+        <span class="contact-label">Email</span>
+        hello@spoonfactory.io
+      </a>
+      <a href="tel:+358 50 374 3470" class="contact-item">
+        <span class="contact-label">Phone</span>
+        +358 00 000 0000
+      </a>
+      <a href="#" class="contact-item">
+        <span class="contact-label">Location</span>
+        Helsinki, Finland
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Spoon <span>Factory</span></div>
+  <span class="footer-copy">&#169; 2026 Spoon Factory. All rights reserved.</span>
+  <ul class="footer-links">
+    <!--li><a href="#">LinkedIn</a></li-->
+    <!--li><a href="#">Privacy</a></li-->
+  </ul>
+</footer>
+
+<script>
+(function() {
+  // Custom cursor
+  var cursor = document.getElementById('cursor');
+  var ring = document.getElementById('cursorRing');
+  var mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      cursor.style.width = '12px';
+      cursor.style.height = '12px';
+      ring.style.width = '48px';
+      ring.style.height = '48px';
+    });
+    el.addEventListener('mouseleave', function() {
+      cursor.style.width = '6px';
+      cursor.style.height = '6px';
+      ring.style.width = '32px';
+      ring.style.height = '32px';
+    });
+  });
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+</script>
 </body>
-
 </html>
